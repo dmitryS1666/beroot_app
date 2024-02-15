@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: solidus_dev
+  host: localhost
+  user: sushi
+  password: password
+
+production:
+  <<: *default
+  database: solidus_prod
+  username: owen
+  password: root

@@ -1,0 +1,48 @@
+<div style="display:none;" class="tour-widget <%= "open" if params[:guided_tour] %>">
+  <% tour_text = TOUR_TEXT.dig(controller_path, action_name) || [] %>
+  <% tour_text.each_with_index do |(name,val),index| %>
+    <div class="tour-body <%= name %>" style="<%= index == 0 ? '' : 'display:none;'%>">
+      <% if val["button_action"] == "next" %>
+        <span class="tour-button-wrapper">
+          <div class="tour-button btn btn-primary tour-next">
+            Next
+          </div>
+        </span>
+      <% else %>
+        <a class="tour-button-wrapper" href="<%= val['button_location'] %><%= val['button_location'].include?('?') ? '&' : '?' %>guided_tour=true">
+          <div class="tour-button continue btn btn-primary">
+              Continue
+          </div>
+        </a>
+      <% end %>
+
+      <div class="tour-inner">
+        <div class="tour-title"><%= val["title"] %></div>
+        <div class="tour-text"><%= simple_format(val["body_text"]) %> </div>
+      </div>
+
+      <div class="tour-whitebox" data-selector="<%= val['selector'] %>"></div>
+    </div>
+  <% end %>
+
+  <% if tour_text == [] %>
+    <div class="tour-body start-wrapper">
+      <a href="/">
+        <div class="tour-button continue btn btn-primary">
+          Start Guided Tour
+        </div>
+      </a>
+      <div class="tour-whitebox"></div>
+    </div>
+  <% end %>
+
+  <div class="tour-toggler">
+    <div class="tour-toggler-button">
+      <div class="tour-toggler-text">
+        Guided Tour
+      </div>
+      <div class="tour-toggler-box">
+      </div>
+    </div>
+  </div>
+</div>
