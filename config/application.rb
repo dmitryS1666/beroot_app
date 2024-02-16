@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module SolidusDemo
   class Application < Rails::Application
+    config.require_master_key = false
+
     # Load application's model / class decorators
     initializer 'spree.decorators' do |app|
       config.to_prepare do
