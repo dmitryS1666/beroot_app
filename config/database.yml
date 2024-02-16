@@ -12,6 +12,6 @@ development:
 
 production:
   <<: *default
-  database: solidus_prod
-  username: owen
-  password: root
+  database: beroot
+  username: deploy
+  password: password
