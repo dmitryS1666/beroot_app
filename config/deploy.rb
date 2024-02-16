@@ -10,7 +10,7 @@ set :deploy_to, "/root/#{fetch :application}"
 # Default value for linked_dirs is []
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
 
-append :linked_files, "config/production.yml.key"
+append :linked_files, "config/production.yml.enc"
 
 # Only keep the last 5 releases to save disk space
 set :keep_releases, 5
