@@ -11,6 +11,7 @@ set :deploy_to, "/root/#{fetch :application}"
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
 
 set :linked_files, fetch(:linked_files, []).push("config/credentials/master.key")
+set :linked_files, fetch(:linked_files, []).push("config/credentials/production.key")
 
 # Only keep the last 5 releases to save disk space
 set :keep_releases, 5
