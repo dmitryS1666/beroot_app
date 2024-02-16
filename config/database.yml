@@ -14,4 +14,4 @@ production:
   <<: *default
   database: beroot
   username: deploy
-  password: password
+  password: new_password
